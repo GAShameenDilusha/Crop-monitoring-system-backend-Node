@@ -14,6 +14,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+
 router.delete('/delete/:staff_id', async (req, res) => {
     const staff_id = req.params.staff_id;
     try {
@@ -25,6 +26,7 @@ router.delete('/delete/:staff_id', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const staff = await getAllStaff();
@@ -34,6 +36,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching staff');
     }
 });
+
 
 router.put('/update/:staff_id', async (req, res) => {
     const staff_id = req.params.staff_id;
@@ -46,6 +49,7 @@ router.put('/update/:staff_id', async (req, res) => {
         res.status(500).send('Error updating staff');
     }
 });
+
 
 router.get('/search/:staff_id', async (req, res) => {
     const staff_id = req.params.staff_id;
