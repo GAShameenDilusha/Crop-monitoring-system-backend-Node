@@ -6,4 +6,5 @@ export default class StaffLogs {
     first_name!:string
     phone_no!:string
     staff_id!:string
+
 }
