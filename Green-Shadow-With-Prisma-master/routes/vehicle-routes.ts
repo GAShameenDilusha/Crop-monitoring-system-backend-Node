@@ -20,6 +20,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+
 router.delete('/delete/:vehicle_code', async (req, res) => {
     const vehicle_code = req.params.vehicle_code;
     try {
@@ -31,6 +32,7 @@ router.delete('/delete/:vehicle_code', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const vehicles = await getAllVehicles();
@@ -40,6 +42,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching vehicles');
     }
 });
+
 
 router.put('/update/:vehicle_code', async (req, res) => {
     const vehicle_code = req.params.vehicle_code;
@@ -52,6 +55,7 @@ router.put('/update/:vehicle_code', async (req, res) => {
         res.status(500).send('Error updating vehicle');
     }
 });
+
 
 router.get('/search/:vehicle_code', async (req, res) => {
     const vehicle_code = req.params.vehicle_code;
