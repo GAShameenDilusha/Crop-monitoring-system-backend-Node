@@ -5,4 +5,5 @@ export default class Field {
     field_name!:string;
     img_01!:string;
     img_02!:string;
+
 }
