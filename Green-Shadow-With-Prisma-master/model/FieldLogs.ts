@@ -6,4 +6,5 @@ export default class FieldLogs {
     field_location!:string
     field_name!:string
     field_code!:string
+
 }
