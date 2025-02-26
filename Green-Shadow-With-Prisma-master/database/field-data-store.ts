@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import Field from "../model/Field";
 
 const prisma = new PrismaClient();
-
 export async function addFields(fields: Field) {
     try {
         const field = await prisma.field.create({
@@ -21,6 +20,7 @@ export async function addFields(fields: Field) {
     }
 }
 
+
 export async function deleteFields(field_code: string) {
     try {
         await prisma.field.delete({
@@ -31,6 +31,7 @@ export async function deleteFields(field_code: string) {
     }
 }
 
+
 export async function getAllFields() {
     try {
         return await prisma.field.findMany();
@@ -38,6 +39,7 @@ export async function getAllFields() {
         console.log('Error Getting Fields',e);
     }
 }
+
 
 export async function updateFields(field_code: string, fields: Field) {
     try {
@@ -56,6 +58,7 @@ export async function updateFields(field_code: string, fields: Field) {
         console.log('Error Updating Fields',e);
     }
 }
+
 
 export async function searchFields(field_code: string) {
     try {
