@@ -10,4 +10,5 @@ export default class Vehicle {
     status!:string
     vehicle_category!:string
     staff_id!:string
+
 }
