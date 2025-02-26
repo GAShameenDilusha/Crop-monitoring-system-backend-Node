@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import Vehicle from "../model/Vehicle";
 
 const prisma = new PrismaClient();
-
 export async function addVehicles(vehicle: Vehicle) {
     try {
         const vehicles = await prisma.vehicle.create({
@@ -26,6 +25,7 @@ export async function addVehicles(vehicle: Vehicle) {
     }
 }
 
+
 export async function deleteVehicles(vehicle_code: string) {
     try {
         await prisma.vehicle.delete({
@@ -36,6 +36,7 @@ export async function deleteVehicles(vehicle_code: string) {
     }
 }
 
+
 export async function getAllVehicles() {
     try {
         return await prisma.vehicle.findMany();
@@ -43,6 +44,7 @@ export async function getAllVehicles() {
         console.log('Error Getting Vehicle',e);
     }
 }
+
 
 export async function updateVehicles(vehicle_code: string, vehicle: Vehicle) {
     try {
@@ -66,6 +68,7 @@ export async function updateVehicles(vehicle_code: string, vehicle: Vehicle) {
         console.log('Error Updating Vehicle',e);
     }
 }
+
 
 export async function searchVehicles(vehicle_code: string,) {
     try {
