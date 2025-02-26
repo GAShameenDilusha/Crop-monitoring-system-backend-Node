@@ -23,6 +23,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
+
 router.post('/login', async (req, res) => {
     const email = req.body.user.email;
     const password = req.body.user.password;
@@ -51,6 +52,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
 router.post('/refresh', async (req, res) => {
     const header = req.headers.authorization;
     const refreshToken = header?.split(' ')[1];
@@ -66,6 +68,7 @@ router.post('/refresh', async (req, res) => {
         res.status(500).send('Error refreshing token');
     }
 });
+
 
 export function authenticateToken(req: express.Request, res: express.Response, next: express.NextFunction) {
     const header = req.headers.authorization;
