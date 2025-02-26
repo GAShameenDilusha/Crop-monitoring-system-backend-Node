@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import FieldLogs from "../model/FieldLogs";
 
 const prisma = new PrismaClient();
-
 export async function addFieldLogs(logs: FieldLogs) {
     try {
         const log = await prisma.field_Logs.create({
@@ -22,6 +21,7 @@ export async function addFieldLogs(logs: FieldLogs) {
     }
 }
 
+
 export async function deleteFieldLogs(log_code: string) {
     try {
         await prisma.field_Logs.delete({
@@ -32,6 +32,7 @@ export async function deleteFieldLogs(log_code: string) {
     }
 }
 
+
 export async function getAllFieldLogs() {
     try {
         return await prisma.field_Logs.findMany();
@@ -39,6 +40,7 @@ export async function getAllFieldLogs() {
         console.log('Error Getting Field Logs',e);
     }
 }
+
 
 export async function updateFieldLogs(log_code: string, logs: FieldLogs) {
     try {
@@ -58,6 +60,7 @@ export async function updateFieldLogs(log_code: string, logs: FieldLogs) {
         console.log('Error Updating Field Logs',e);
     }
 }
+
 
 export async function searchFieldLogs(log_code: string) {
     try {
