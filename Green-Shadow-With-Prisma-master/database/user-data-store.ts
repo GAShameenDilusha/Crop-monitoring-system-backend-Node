@@ -20,6 +20,7 @@ export async function registerUser(user: User) {
     }
 }
 
+
 export async function verifyUser(user: User) {
     try {
         const userFound : User | null = await prisma.user.findUnique({
@@ -34,6 +35,7 @@ export async function verifyUser(user: User) {
         console.log('Error Verifying User',e);
     }
 }
+
 
 export async function getUserByEmail(email: string) {
     try {
