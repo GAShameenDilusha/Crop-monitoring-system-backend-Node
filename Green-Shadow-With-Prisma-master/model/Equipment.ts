@@ -10,4 +10,5 @@ export default class Equipment {
     type!:string
     field_code!:string
     staff_id!:string
+
 }
