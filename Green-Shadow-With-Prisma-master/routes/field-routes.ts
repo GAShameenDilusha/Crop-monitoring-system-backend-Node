@@ -12,6 +12,7 @@ const upload = multer({
     },
 });
 
+
 router.post('/add', upload.fields([{ name: 'img_01', maxCount: 1 }, { name: 'img_02', maxCount: 1 },]), async (req, res) => {
     const fields: Field = req.body;
 
@@ -33,6 +34,7 @@ router.post('/add', upload.fields([{ name: 'img_01', maxCount: 1 }, { name: 'img
     }
 });
 
+
 router.delete('/delete/:field_code', async (req, res) => {
     const field_code = req.params.field_code;
     try {
@@ -44,6 +46,7 @@ router.delete('/delete/:field_code', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const fields = await getAllFields();
@@ -53,6 +56,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching fields');
     }
 });
+
 
 router.put('/update/:field_code', upload.fields([{ name: 'img_01', maxCount: 1 }, { name: 'img_02', maxCount: 1 },]), async (req, res) => {
     const field_code = req.params.field_code;
@@ -75,6 +79,7 @@ router.put('/update/:field_code', upload.fields([{ name: 'img_01', maxCount: 1 }
         res.status(500).send('Error updating fields');
     }
 });
+
 
 router.get('/search/:field_code', async (req, res) => {
     const field_code = req.params.field_code;
