@@ -5,4 +5,5 @@ export default class CropLogs {
     log_date!:string
     crop_name!:string
     crop_code!:string
+
 }
