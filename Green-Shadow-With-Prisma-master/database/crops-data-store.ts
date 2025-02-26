@@ -22,6 +22,7 @@ export async function addCrops(crops: Crops) {
     }
 }
 
+
 export async function deleteCrops(crop_code: string) {
     try {
         await prisma.crops.delete({
@@ -32,6 +33,7 @@ export async function deleteCrops(crop_code: string) {
     }
 }
 
+
 export async function getAllCrops() {
     try {
         return await prisma.crops.findMany();
@@ -39,6 +41,7 @@ export async function getAllCrops() {
         console.log('Error Getting Crops',e);
     }
 }
+
 
 export async function updateCrops(crop_code: string, crops: Crops) {
     try {
@@ -58,6 +61,7 @@ export async function updateCrops(crop_code: string, crops: Crops) {
         console.log('Error Updating Crops',e);
     }
 }
+
 
 export async function searchCrops(crop_code: string,) {
     try {
