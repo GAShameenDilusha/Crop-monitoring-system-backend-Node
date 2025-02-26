@@ -12,6 +12,7 @@ const upload = multer({
     },
 });
 
+
 router.post('/add', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, res) => {
     const crops: Crops = req.body;
 
@@ -29,6 +30,7 @@ router.post('/add', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, 
     }
 });
 
+
 router.delete('/delete/:crop_code', async (req, res) => {
     const crop_code = req.params.crop_code;
     try {
@@ -40,6 +42,7 @@ router.delete('/delete/:crop_code', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const crops = await getAllCrops();
@@ -49,6 +52,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching crops');
     }
 });
+
 
 router.put('/update/:crop_code', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, res) => {
     const crop_code = req.params.crop_code;
@@ -67,6 +71,7 @@ router.put('/update/:crop_code', upload.fields([{ name: 'img', maxCount: 1 },]),
         res.status(500).send('Error updating crops');
     }
 });
+
 
 router.get('/search/:crop_code', async (req, res) => {
     const crop_code = req.params.crop_code;
