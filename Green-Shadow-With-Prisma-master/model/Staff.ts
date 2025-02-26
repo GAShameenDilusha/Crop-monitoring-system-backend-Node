@@ -15,4 +15,5 @@ export default class Staff {
     phone_no!:string;
     role!:string;
     field_code!:string;
+
 }
