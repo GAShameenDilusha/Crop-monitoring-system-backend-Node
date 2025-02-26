@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import Staff from "../model/Staff";
 
 const prisma = new PrismaClient();
-
 export async function addStaff(staff: Staff) {
     try {
         const staffs = await prisma.staff.create({
@@ -31,6 +30,7 @@ export async function addStaff(staff: Staff) {
     }
 }
 
+
 export async function deleteStaff(staff_id: string) {
     try {
         await prisma.staff.delete({
@@ -41,6 +41,7 @@ export async function deleteStaff(staff_id: string) {
     }
 }
 
+
 export async function getAllStaff() {
     try {
         return await prisma.staff.findMany();
@@ -48,6 +49,7 @@ export async function getAllStaff() {
         console.log('Error Getting Staff',e);
     }
 }
+
 
 export async function updateStaff(staff_id: string, staff: Staff) {
     try {
@@ -76,6 +78,7 @@ export async function updateStaff(staff_id: string, staff: Staff) {
         console.log('Error Updating Staff',e);
     }
 }
+
 
 export async function searchStaff(staff_id: string,) {
     try {
