@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import CropLogs from "../model/CropLogs";
 
 const prisma = new PrismaClient();
-
 export async function addCropLogs(logs: CropLogs) {
     try {
         const log = await prisma.crop_Logs.create({
@@ -21,6 +20,7 @@ export async function addCropLogs(logs: CropLogs) {
     }
 }
 
+
 export async function deleteCropLogs(log_code: string) {
     try {
         await prisma.crop_Logs.delete({
@@ -31,6 +31,7 @@ export async function deleteCropLogs(log_code: string) {
     }
 }
 
+
 export async function getAllCropLogs() {
     try {
         return await prisma.crop_Logs.findMany();
@@ -38,6 +39,7 @@ export async function getAllCropLogs() {
         console.log('Error Getting Crop Logs',e);
     }
 }
+
 
 export async function updateCropLogs(log_code: string, logs: CropLogs) {
     try {
@@ -56,6 +58,7 @@ export async function updateCropLogs(log_code: string, logs: CropLogs) {
         console.log('Error Updating Crop Logs',e);
     }
 }
+
 
 export async function searchCropLogs(log_code: string) {
     try {
