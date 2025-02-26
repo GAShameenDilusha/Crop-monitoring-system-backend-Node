@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import Equipment from "../model/Equipment";
 
 const prisma = new PrismaClient();
-
 export async function addEquipment(equipment: Equipment) {
     try {
         const equipments = await prisma.equipment.create({
@@ -26,6 +25,7 @@ export async function addEquipment(equipment: Equipment) {
     }
 }
 
+
 export async function deleteEquipment(eq_code: string) {
     try {
         await prisma.equipment.delete({
@@ -36,6 +36,7 @@ export async function deleteEquipment(eq_code: string) {
     }
 }
 
+
 export async function getAllEquipment() {
     try {
         return await prisma.equipment.findMany();
@@ -43,6 +44,7 @@ export async function getAllEquipment() {
         console.log('Error Getting Equipment',e);
     }
 }
+
 
 export async function updateEquipment(eq_code: string, equipment: Equipment) {
     try {
@@ -66,6 +68,7 @@ export async function updateEquipment(eq_code: string, equipment: Equipment) {
         console.log('Error Updating Equipment',e);
     }
 }
+
 
 export async function searchEquipment(eq_code: string) {
     try {
