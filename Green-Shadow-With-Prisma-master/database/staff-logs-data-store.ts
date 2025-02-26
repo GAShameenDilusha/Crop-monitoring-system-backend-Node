@@ -2,7 +2,6 @@ import {PrismaClient} from "@prisma/client";
 import StaffLogs from "../model/StaffLogs";
 
 const prisma = new PrismaClient();
-
 export async function addStaffLogs(staffLogs: StaffLogs) {
     try {
         const staffLogsData = await prisma.staff_Logs.create({
@@ -22,6 +21,7 @@ export async function addStaffLogs(staffLogs: StaffLogs) {
     }
 }
 
+
 export async function deleteStaffLogs(log_code: string) {
     try {
         await prisma.staff_Logs.delete({
@@ -32,6 +32,7 @@ export async function deleteStaffLogs(log_code: string) {
     }
 }
 
+
 export async function getAllStaffLogs() {
     try {
         return await prisma.staff_Logs.findMany();
@@ -39,6 +40,7 @@ export async function getAllStaffLogs() {
         console.log('Error Getting Staff Logs',e);
     }
 }
+
 
 export async function updateStaffLogs(log_code: string, staffLogs: StaffLogs) {
     try {
@@ -58,6 +60,7 @@ export async function updateStaffLogs(log_code: string, staffLogs: StaffLogs) {
         console.log('Error Updating Staff Logs',e);
     }
 }
+
 
 export async function searchStaffLogs(log_code: string) {
     try {
