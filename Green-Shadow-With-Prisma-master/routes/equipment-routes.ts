@@ -20,6 +20,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+
 router.delete('/delete/:eq_code', async (req, res) => {
     const eq_code = req.params.eq_code;
     try {
@@ -31,6 +32,7 @@ router.delete('/delete/:eq_code', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const equipments = await getAllEquipment();
@@ -40,6 +42,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching equipments');
     }
 });
+
 
 router.put('/update/:eq_code', async (req, res) => {
     const eq_code = req.params.eq_code;
@@ -52,6 +55,7 @@ router.put('/update/:eq_code', async (req, res) => {
         res.status(500).send('Error updating equipment');
     }
 });
+
 
 router.get('/search/:eq_code', async (req, res) => {
     const eq_code = req.params.eq_code;
