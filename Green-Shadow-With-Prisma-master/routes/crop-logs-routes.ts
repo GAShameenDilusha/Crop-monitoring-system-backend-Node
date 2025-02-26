@@ -17,6 +17,7 @@ const upload = multer({
     },
 });
 
+
 router.post('/add', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, res) => {
     const logs = req.body;
 
@@ -34,6 +35,7 @@ router.post('/add', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, 
     }
 });
 
+
 router.delete('/delete/:log_code', async (req, res) => {
     const log_code = req.params.log_code;
     try {
@@ -45,6 +47,7 @@ router.delete('/delete/:log_code', async (req, res) => {
     }
 });
 
+
 router.get('/get', async (req, res) => {
     try {
         const logs = await getAllCropLogs();
@@ -54,6 +57,7 @@ router.get('/get', async (req, res) => {
         res.status(500).send('Error fetching crop logs');
     }
 });
+
 
 router.put('/update/:log_code', upload.fields([{ name: 'img', maxCount: 1 },]), async (req, res) => {
     const log_code = req.params.log_code;
@@ -73,6 +77,7 @@ router.put('/update/:log_code', upload.fields([{ name: 'img', maxCount: 1 },]), 
     }
 });
 
+
 router.get('/search/:log_code', async (req, res) => {
     const log_code = req.params.log_code;
     try {
@@ -83,5 +88,6 @@ router.get('/search/:log_code', async (req, res) => {
         res.status(500).send('Error searching crop logs');
     }
 });
+
 
 export default router;
