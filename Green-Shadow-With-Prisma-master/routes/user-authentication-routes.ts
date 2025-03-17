@@ -1,3 +1,4 @@
+/*
 import dotenv from "dotenv";
 import express from "express";
 import {getUserByEmail, registerUser, verifyUser} from "../database/user-data-store";
@@ -87,5 +88,31 @@ export function authenticateToken(req: express.Request, res: express.Response, n
         res.status(403).send('Invalid token');
     }
 }
+
+export default router;*/
+
+import dotenv from "dotenv";
+import express from "express";
+import {getUserByEmail, registerUser} from "../database/user-data-store";
+import User from "../model/User";
+
+dotenv.config();
+const router = express.Router();
+
+router.post('/register', async (req, res) => {
+    const email = req.body.user.email;
+    const password = req.body.user.password;
+    const role = req.body.user.role;
+
+    const user : User = {email, password, role};
+
+    try {
+        const userRegistered = await registerUser(user);
+        res.status(201).json(userRegistered);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error registering user');
+    }
+});
 
 export default router;

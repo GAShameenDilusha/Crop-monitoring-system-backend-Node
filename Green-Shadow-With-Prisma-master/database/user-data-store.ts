@@ -1,3 +1,4 @@
+/*
 import {PrismaClient} from "@prisma/client";
 import User from "../model/User";
 import bcrypt from 'bcrypt';
@@ -47,5 +48,26 @@ export async function getUserByEmail(email: string) {
         });
     } catch (e) {
         console.log('Error Getting User By Email',e);
+    }
+}*/
+import {PrismaClient} from "@prisma/client";
+import User from "../model/User";
+import bcrypt from 'bcrypt';
+
+const prisma = new PrismaClient();
+
+export async function registerUser(user: User) {
+    const codedPassword = await bcrypt.hash(user.password, 10);
+
+    try {
+        await prisma.user.create({
+            data: {
+                email: user.email,
+                password: codedPassword,
+                role: user.role,
+            }
+        });
+    } catch (e) {
+        console.log('Error Creating User',e);
     }
 }

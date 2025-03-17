@@ -1,0 +1,3 @@
+node_modules
+# Keep environment variables out of version control
+Green-Shadow-With-Prisma-master/.env
